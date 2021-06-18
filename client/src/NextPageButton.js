@@ -22,7 +22,7 @@ const NextPageButton = ({ handlePageChange, checkButtons }) => {
         handlePageChange("next");
       }}
     >
-      Next 10
+      Next Page
     </StyledNextButton>
   );
 };

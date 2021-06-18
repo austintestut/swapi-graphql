@@ -21,7 +21,7 @@ const PreviousPageButton = ({ handlePageChange, checkButtons }) => {
         handlePageChange("previous");
       }}
     >
-      Previous 10
+      Previous Page
     </StyledPreviousButton>
   );
 };
