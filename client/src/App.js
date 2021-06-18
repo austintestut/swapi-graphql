@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import styled from 'styled-components';
+import styled from "styled-components";
 import CharacterContainer from "./CharacterContainer";
 import Header from "./Header";
 import FavoritesList from "./FavoritesList";
 import PageButtonContainer from "./PageButtonContainer";
 
 const StyledAppContainer = styled.div`
-position: absolute;
-background-image: linear-gradient(to bottom, #01144d, #afb3bd);
-color: white;
-height: 100%;
-width: 100%;
+  position: absolute;
+  background-image: linear-gradient(to bottom, #01144d, #afb3bd);
+  color: white;
+  height: 100%;
+  width: 100%;
 `;
 
 const GET_CHARACTERS = gql`
@@ -77,6 +77,15 @@ function App() {
     }
   };
 
+  const handlePageChange = (nextOrPrevious) => {
+    console.log(nextOrPrevious, translatedY)
+    if (nextOrPrevious === "next") {
+      changeY(translatedY - 600);
+    } else {
+      changeY(translatedY + 600);
+    }
+  };
+
   return (
     <StyledAppContainer className="App">
       <Header updateSearch={updateSearch} />
@@ -86,8 +95,9 @@ function App() {
         handleFavoriteChange={handleFavoriteChange}
         favorites={favorites}
         changeFavorites={changeFavorites}
+        translatedY={translatedY}
       />
-      <PageButtonContainer />
+      <PageButtonContainer handlePageChange={handlePageChange} />
     </StyledAppContainer>
   );
 }
