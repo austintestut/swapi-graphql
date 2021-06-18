@@ -14,8 +14,12 @@ const StyledNextButton = styled.button`
   }
 `;
 
-const NextPageButton = () => {
-  return <StyledNextButton type="button">Next 10</StyledNextButton>;
+const NextPageButton = ({ handlePageChange }) => {
+  return (
+    <StyledNextButton type="button" onClick={() => handlePageChange("next")}>
+      Next 10
+    </StyledNextButton>
+  );
 };
 
 export default NextPageButton;

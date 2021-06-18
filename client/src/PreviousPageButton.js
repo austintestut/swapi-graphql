@@ -13,8 +13,15 @@ const StyledPreviousButton = styled.button`
   }
 `;
 
-const PreviousPageButton = () => {
-  return <StyledPreviousButton type="button">Previous 10</StyledPreviousButton>;
+const PreviousPageButton = ({ handlePageChange }) => {
+  return (
+    <StyledPreviousButton
+      type="button"
+      onClick={() => handlePageChange("previous")}
+    >
+      Previous 10
+    </StyledPreviousButton>
+  );
 };
 
 export default PreviousPageButton;

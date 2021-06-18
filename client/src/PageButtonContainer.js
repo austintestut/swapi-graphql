@@ -9,11 +9,11 @@ const StyledButtonContainer = styled.div`
   height: 20px;
 `;
 
-const PageButtonContainer = () => {
+const PageButtonContainer = ({ handlePageChange }) => {
   return (
     <StyledButtonContainer>
-      <PreviousPageButton />
-      <NextPageButton />
+      <PreviousPageButton handlePageChange={handlePageChange} />
+      <NextPageButton handlePageChange={handlePageChange} />
     </StyledButtonContainer>
   );
 };
