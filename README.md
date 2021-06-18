@@ -10,7 +10,8 @@ To start the app:
   4. (In both directories) run commands:
       - `npm install`
       - `npm start`
-  5. If browser does not automatically open, navigate to http://localhost:3000
+  5. In /api/lib/server, make sure the app is listening on port 8080 (line 6)
+  6. If browser does not automatically open, navigate to http://localhost:3000
 
 ## Running Tests
 To run the app's tests, run `npm run test` from a terminal in the client directory
