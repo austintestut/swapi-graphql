@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
+import styled from 'styled-components';
 import CharacterContainer from "./CharacterContainer";
 import Header from "./Header";
 import FavoritesList from "./FavoritesList";
+import PageButtonContainer from "./PageButtonContainer";
+
+const StyledAppContainer = styled.div`
+position: absolute;
+background-image: linear-gradient(to bottom, #01144d, #afb3bd);
+color: white;
+height: 100%;
+width: 100%;
+`;
 
 const GET_CHARACTERS = gql`
   query GetPeople {
@@ -43,6 +53,8 @@ function App() {
   let [favorites, changeFavorites] = useState(faves);
   const { loading, error, data } = useQuery(GET_CHARACTERS);
 
+  let [translatedY, changeY] = useState(0);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
 
@@ -66,16 +78,17 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <StyledAppContainer className="App">
       <Header updateSearch={updateSearch} />
+      <FavoritesList favorites={favorites} />
       <CharacterContainer
         people={people}
         handleFavoriteChange={handleFavoriteChange}
         favorites={favorites}
         changeFavorites={changeFavorites}
       />
-      <FavoritesList favorites={favorites} />
-    </div>
+      <PageButtonContainer />
+    </StyledAppContainer>
   );
 }
 
