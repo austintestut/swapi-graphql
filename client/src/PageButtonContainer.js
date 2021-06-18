@@ -17,7 +17,6 @@ const PageButtonContainer = ({ handlePageChange, people, translatedY }) => {
   useEffect(() => {
     const pages = Math.floor(people.length / 10);
     const maxNextTranslation = pages * -600;
-    console.log(translatedY);
     toggleNextButton(maxNextTranslation < translatedY ? true : false);
     togglePreviousButton(translatedY < 0 ? true : false);
   });

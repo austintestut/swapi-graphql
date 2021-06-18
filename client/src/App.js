@@ -83,7 +83,6 @@ function App() {
   };
 
   const handlePageChange = (nextOrPrevious) => {
-    console.log(nextOrPrevious, translatedY);
     if (nextOrPrevious === "next") {
       changeY(translatedY - 600);
     } else {

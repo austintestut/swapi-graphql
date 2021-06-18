@@ -5,10 +5,11 @@ const StyledHeader = styled.div`
   height: 60px;
   border-bottom: 2px solid;
   text-align: center;
+  padding-top: 10px;
 `;
 
 const StyledTitle = styled.span`
-  font-weight: 600;
+  font-weight: 700;
   font-family: Helvetica;
   font-size: 20px;
 `;
