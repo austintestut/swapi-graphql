@@ -7,23 +7,30 @@ const StyledCard = styled.div`
   position: relative;
   height: 266px;
   border: 2px solid;
+  border-radius: 5px;
   margin: 10px;
   padding: 5px;
+  transition: transform 0.35s;
+  transform: translateY(${props => props.translatedY}px);
 `;
 
 const StyledStar = styled.img`
   height: 50px;
   width: 50px;
   float: right;
+  &:hover {
+    cursor: pointer;
+    filter: invert(0.3);
+  }
 `;
 
-function CharacterCard({ person, handleFavoriteChange, favorites, changeFavorites }) {
+function CharacterCard({ person, handleFavoriteChange, favorites, changeFavorites, translatedY }) {
   const [isFavorited, toggleFavorited] = useState(false);
   if (!isFavorited && window.localStorage[person.name]) {
     toggleFavorited(true);
   }
   return (
-    <StyledCard>
+    <StyledCard translatedY={translatedY}>
       <StyledStar
         alt="favorite star"
         src={

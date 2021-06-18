@@ -1,28 +1,28 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const StyledFavoritesList = styled.div`
   border: 1px solid;
-  min-width: 5%;
-  max-width: 15%;
+  width: 15%;
   height: auto;
-  max-height: 400px;
+  max-height: 665px;
+  position: absolute;
+  border-radius: 5px;
 `;
 
 const StyledHeader = styled.div`
   position: fixed;
   display: block;
-  background-color: white;
 `;
 
 const StyledTitle = styled.span`
   font-weight: 600;
   margin: auto;
   width: 100%;
+  padding: 5px;
 `;
 
 const StyledListContainer = styled.div`
-  max-height: 300px;
+  max-height: 632px;
   margin-top: 30px;
   overflow-y: auto;
 `;
