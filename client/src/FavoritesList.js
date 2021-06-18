@@ -3,16 +3,15 @@ import styled from "styled-components";
 
 const StyledFavoritesList = styled.div`
   border: 1px solid;
-  min-width: 5%;
-  max-width: 15%;
+  width: 15%;
   height: auto;
   max-height: 400px;
+  position: absolute;
 `;
 
 const StyledHeader = styled.div`
   position: fixed;
   display: block;
-  background-color: white;
 `;
 
 const StyledTitle = styled.span`
