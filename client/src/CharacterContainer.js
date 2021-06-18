@@ -19,7 +19,7 @@ function CharacterContainer({
   translatedY
 }) {
   return (
-    <StyledCardContainer>
+    <StyledCardContainer data-testid="cardContainer">
       {people.map((person) => {
         return (
           <CharacterCard
