@@ -43,28 +43,33 @@ const searchCharacters = (characters, query) => {
 };
 
 function App() {
-  let [search, updateSearch] = useState("");
+  const [search, updateSearch] = useState("");
 
   let faves = [];
   for (let i = 0; i < window.localStorage.length; i++) {
     faves.push(window.localStorage.key(i));
   }
 
-  let [favorites, changeFavorites] = useState(faves);
+  const [favorites, changeFavorites] = useState(faves);
   const { loading, error, data } = useQuery(GET_CHARACTERS);
 
-  let [translatedY, changeY] = useState(0);
+  const [translatedY, changeY] = useState(0);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error :</p>;
+  }
 
-  let people = searchCharacters(data.allPeople.people, search);
+  var people = searchCharacters(data.allPeople.people, search);
   people = people.slice().sort((a, b) => {
     if (a.name > b.name) {
       return 1;
     }
     return -1;
   });
+
 
   const handleFavoriteChange = (addOrRemove, person) => {
     let favList = favorites.slice();
@@ -78,7 +83,7 @@ function App() {
   };
 
   const handlePageChange = (nextOrPrevious) => {
-    console.log(nextOrPrevious, translatedY)
+    console.log(nextOrPrevious, translatedY);
     if (nextOrPrevious === "next") {
       changeY(translatedY - 600);
     } else {
@@ -97,7 +102,7 @@ function App() {
         changeFavorites={changeFavorites}
         translatedY={translatedY}
       />
-      <PageButtonContainer handlePageChange={handlePageChange} />
+      <PageButtonContainer handlePageChange={handlePageChange} people={people} translatedY={translatedY} />
     </StyledAppContainer>
   );
 }
