@@ -29,12 +29,12 @@ const StyledListContainer = styled.div`
 
 const FavoritesList = ({ favorites }) => {
   return (
-    <StyledFavoritesList>
+    <StyledFavoritesList >
       <StyledHeader>
         <StyledTitle>Favorites</StyledTitle>
       </StyledHeader>
       <StyledListContainer>
-        <ul>
+        <ul data-testid="favorites">
           {favorites.length === 0
             ? "None"
             : favorites.map((name) => <li key={name}>{name}</li>)}

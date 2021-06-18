@@ -15,7 +15,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <App data-testid="application" />
   </ApolloProvider>,
   document.getElementById("root")
 );

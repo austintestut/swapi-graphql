@@ -14,7 +14,7 @@ const StyledAppContainer = styled.div`
   width: 100%;
 `;
 
-const GET_CHARACTERS = gql`
+export const GET_CHARACTERS = gql`
   query GetPeople {
     allPeople {
       people {
