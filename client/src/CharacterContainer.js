@@ -16,6 +16,7 @@ function CharacterContainer({
   handleFavoriteChange,
   favorites,
   changeFavorites,
+  translatedY
 }) {
   return (
     <StyledCardContainer>
@@ -25,6 +26,7 @@ function CharacterContainer({
             person={person}
             key={person.name}
             handleFavoriteChange={handleFavoriteChange}
+            translatedY={translatedY}
           />
         );
       })}
