@@ -1,22 +1,41 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import emptyStar from "./assets/empty_star.png";
 import fullStar from "./assets/full_star.png";
 
-function CharacterCard({ person }) {
+const StyledCard = styled.div`
+  position: relative;
+  height: 266px;
+  border: 2px solid;
+  margin: 10px;
+  padding: 5px;
+`;
+
+const StyledStar = styled.img`
+  height: 50px;
+  width: 50px;
+  float: right;
+`;
+
+function CharacterCard({ person, handleFavoriteChange, favorites, changeFavorites }) {
   const [isFavorited, toggleFavorited] = useState(false);
   if (!isFavorited && window.localStorage[person.name]) {
     toggleFavorited(true);
   }
   return (
-    <div>
-      <img
+    <StyledCard>
+      <StyledStar
         alt="favorite star"
-        src={isFavorited || window.localStorage[person.name] ? fullStar : emptyStar}
+        src={
+          isFavorited || window.localStorage[person.name] ? fullStar : emptyStar
+        }
         onClick={() => {
           if (!isFavorited) {
-            window.localStorage.setItem(person.name, person);
+            window.localStorage.setItem(person.name, person.name);
+            handleFavoriteChange('add', person);
           } else {
             window.localStorage.removeItem(person.name);
+            handleFavoriteChange('remove', person);
           }
           toggleFavorited(!isFavorited);
         }}
@@ -32,7 +51,7 @@ function CharacterCard({ person }) {
         Species: {person.species === null ? "UNKNOWN" : person.species.name}
       </p>
       <br />
-    </div>
+    </StyledCard>
   );
 }
 
